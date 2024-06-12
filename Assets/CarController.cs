@@ -1,7 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+
+[RequireComponent(typeof(Rigidbody))]
 
 public class NewBehaviourScript : MonoBehaviour
 {
@@ -25,26 +27,22 @@ public class NewBehaviourScript : MonoBehaviour
     [SerializeField] private float speed = 50f;
     [SerializeField] private float steerSpeed = 30f;
     [SerializeField] private float maxSteerAngle = 30f;
+    [SerializeField] private Vector3 centerOfMass;
     private float _moveInput;
-    private float _steerInput;
+    private float _streerInput;
     // Start is called before the first frame update
     void Start()
     {
-
+        var rb = GetComponent<Rigidbody>();
+        rb.centerOfMass = centerOfMass;
     }
 
     // Update is called once per frame
     void Update()
     {
         _moveInput = Input.GetAxis("Vertical");
-        _steerInput = Input.GetAxis("Horizontal");
-    }
-
-    private void LateUpdate()
-    {
-        Move();
+        _streerInput = Input.GetAxis("Horizontal");
         WheelAnimation();
-        Steer();
         BrakeControl();
     }
 
@@ -65,6 +63,11 @@ public class NewBehaviourScript : MonoBehaviour
             }
         }
     }
+    private void LateUpdate()
+    {
+        Move();
+        Steer();
+    }
 
     private void Steer()
     {
@@ -72,12 +75,11 @@ public class NewBehaviourScript : MonoBehaviour
         {
             if (wheel.type == WheelType.Front)
             {
-                float steerAngle = _steerInput * maxSteerAngle * steerSpeed;
+                float steerAngle = _streerInput * maxSteerAngle * steerSpeed;
                 wheel.collider.steerAngle = Mathf.Lerp(wheel.collider.steerAngle, steerAngle, 0.5f);
             }
         }
     }
-
     private void Move()
     {
         foreach (var wheel in wheels)
