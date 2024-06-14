@@ -24,7 +24,7 @@ public class SpawnObstacle : MonoBehaviour
     {
         if (!ObjectPool.Instance.CanSpawn()) return;
         var gameObject = ObjectPool.Instance.PickOne(transform);
-        gameObject.SetActive(true);
+        
 
         var pos = Random.insideUnitSphere * radius;
         pos.y = Mathf.Abs(pos.y);
