@@ -24,8 +24,16 @@ public class PLayer : MonoBehaviour
             _rb.AddForce(force, ForceMode.VelocityChange);
         }
     }
-    //private void OnCollisionEnter(Collision )
-    //{
+    private void OnCollisionEnter(Collision other )
+    {
+        if (other.gameObject.tag.Equals("obstacle"))
+        {
+            Return(other.gameObject);
+        }
         
-    //}
+    }
+    private void Return(GameObject obj)
+    {
+        ObjectPool.Instance.ReturnOne(obj);
+    }
 }
