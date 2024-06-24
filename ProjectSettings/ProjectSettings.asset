@@ -103,7 +103,7 @@ PlayerSettings:
   xboxEnableFitness: 0
   visibleInBackground: 1
   allowFullscreenSwitch: 1
-  fullscreenMode: 1
+  fullscreenMode: 3
   xboxSpeechDB: 0
   xboxEnableHeadOrientation: 0
   xboxEnableGuest: 0
@@ -160,6 +160,7 @@ PlayerSettings:
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
     Android: com.DefaultCompany.123
+    Standalone: com.DefaultCompany.123
   buildNumber:
     Standalone: 0
     VisionOS: 0
@@ -736,7 +737,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: DOTWEEN
+    Android: DOTWEEN;MIRROR;MIRROR_79_OR_NEWER;MIRROR_81_OR_NEWER;MIRROR_82_OR_NEWER;MIRROR_83_OR_NEWER;MIRROR_84_OR_NEWER;MIRROR_85_OR_NEWER;MIRROR_86_OR_NEWER;MIRROR_89_OR_NEWER
     EmbeddedLinux: DOTWEEN
     GameCoreScarlett: DOTWEEN
     GameCoreXboxOne: DOTWEEN
@@ -746,7 +747,7 @@ PlayerSettings:
     PS5: DOTWEEN
     QNX: DOTWEEN
     Stadia: DOTWEEN
-    Standalone: DOTWEEN
+    Standalone: DOTWEEN;MIRROR;MIRROR_79_OR_NEWER;MIRROR_81_OR_NEWER;MIRROR_82_OR_NEWER;MIRROR_83_OR_NEWER;MIRROR_84_OR_NEWER;MIRROR_85_OR_NEWER;MIRROR_86_OR_NEWER;MIRROR_89_OR_NEWER
     VisionOS: DOTWEEN
     WebGL: DOTWEEN
     Windows Store Apps: DOTWEEN
